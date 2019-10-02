@@ -10,7 +10,7 @@ $result_set = $mysqli->query("SELECT * FROM `comments` ORDER BY `comments`.`date
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo $config['sitename']; ?></title>
-    <link href="images/favicon/favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="<?php echo $config['favicon']; ?>" rel="icon" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="styles/style.css">
@@ -24,7 +24,7 @@ $result_set = $mysqli->query("SELECT * FROM `comments` ORDER BY `comments`.`date
             <img src="images/mercedes.jpg" alt="">
         </div>
         <h1 class="page__title">Комментарии</h1>
-        <form id="formx" class="block-comments__form" action="includes/comment.php" method="POST" onsubmit="call()">
+        <form id="form_comment" class="block-comments__form" action="javascript:void(null);" method="POST" onsubmit="call()">
             <input class='block-comments__form-input' id="name" name="name" type="text" placeholder="Введите ваше имя"><br>
             <textarea class='block-comments__form-comment' id="text" name="text" id="" cols="20" rows="5" placeholder="Введите комментарий" required></textarea><br>
             <div class="g-recaptcha" data-sitekey="6LeFKrsUAAAAAE5wo81CCtvIrGiQtLhW2VJeSebt"></div>
@@ -47,5 +47,17 @@ $result_set = $mysqli->query("SELECT * FROM `comments` ORDER BY `comments`.`date
               }  
         ?>
     </div>
+
+    <script type="text/javascript" language="javascript">
+ 	function call() {
+ 	  var msg   = $('#form_comment').serialize();
+        $.ajax({
+          type: 'POST',
+          url: 'includes/comment.php',
+          data: msg
+        });
+ 
+    }
+</script>
 </body>
 </html>
