@@ -3,14 +3,12 @@ require 'db.php';
 
 $name = $_POST['name'];
 $text = $_POST['text'];
-$date = $_POST['id'];
-
+$id = key($_POST['delete']);
 $mysqli = $connect;
 $rCode = $_POST['g-recaptcha-response'];
 $rUrl = 'https://www.google.com/recaptcha/api/siteverify';
 $rSecret = '6LeFKrsUAAAAACDos9htAzQlMMst7q8DY3zkOHXu';
 $ip = $_SERVER['REMOTE_ADDR'];
-
 
 $curl = curl_init($rUrl);
 
@@ -28,9 +26,10 @@ $res = json_decode($res);
 
 if ($res->success) {
     $mysqli->query("INSERT INTO `comments` (`name`, `text`) VALUES ('$name', '$text')");
-header('Location: /');
+    echo '<p style="font-size:40pt;">Капча пройдена!</p> <br>';
 } else {
-    echo '<p style="font-size:40pt">Капча не пройдена!</p> <br> 
+    echo '<p style="font-size:40pt;">Капча не пройдена!</p> <br> 
     <a href="../index.php" style="font-size:30px;">Вернуться на главную</a>';
 }
 ?>
+<script>document.location.href="../index.php"</script>

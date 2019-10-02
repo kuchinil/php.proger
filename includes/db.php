@@ -1,5 +1,4 @@
 <?php
-
 require 'config.php';
 
 $connect = mysqli_connect(
@@ -8,5 +7,4 @@ $connect = mysqli_connect(
     $config['db']['password'],
     $config['db']['name']
 );
-
 ?>
