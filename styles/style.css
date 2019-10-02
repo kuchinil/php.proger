@@ -1,0 +1,64 @@
+.wrap {
+  max-width: 1170px;
+  width: 100%;
+  margin: 0 auto;
+}
+.page__title {
+  text-align: center;
+}
+.image-block {
+  text-align: center;
+}
+.block-comments {
+  border-radius: 5px;
+  width: 33%;
+  margin: 0 auto;
+  padding: 10px;
+  position: relative;
+  margin-bottom: 10px;
+}
+.wrap-nm {
+  display: flex;
+  justify-content: space-between;
+}
+.block-comments__delete {
+  display: none;
+  position: absolute;
+  right: -10px;
+}
+.block-comments:hover .block-comments__delete {
+  display: block;
+}
+.block-comments__name {
+  display: inline-block;
+}
+.block-comments__text {
+  display: inline-block;
+}
+.block-comments__form {
+  display: block;
+  width: 300px;
+  margin: 30px auto;
+  padding: 10px 20px;
+  height: 100%;
+  border: 1px solid #C8C8C8;
+  border-radius: 5px;
+}
+.block-comments__form input {
+  width: 100%;
+}
+
+.block-comments__form textarea {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.block-comments__form-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=style.css.map */
